@@ -1,0 +1,13 @@
+foreground: #46BDFF;
+background: #070825;
+active-background: #df81fc;
+urgent-background: #ff901f;
+selected-foreground: @background;
+selected-background: @active-background;
+active-foreground: @background;
+selected-urgent-background: @urgent-background;
+selected-active-background: @active-background;
+selected-urgent-foreground: @background;
+selected-active-foreground: @background;
+separatorcolor: #D68CFF;
+bordercolor: #D68CFF;

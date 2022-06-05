@@ -1,0 +1,17 @@
+#root {
+    --bg: #fff0f7 !important;
+    --title-fg: #3b2c33 !important;
+    --sub-title-fg: #3b2c33 !important;
+    --label-fg: #3b2c33 !important;
+    --label-fg-hover: #8a7680 !important;
+    --label-fg-active: #3b2c33 !important;
+    --info-fg: #3b2c33 !important;
+    --ctx-menu-bg: #fff0f7 !important;
+    --ctx-menu-bg-hover: #f0dde6 !important;
+    --tabs-fg: #3b2c33 !important;
+    --tabs-fg-hover: #2b1d24 !important;
+    --tabs-bg-hover: #f0dde6 !important;
+    --tabs-bg-active: #d46a84 !important;
+    --tabs-activated-bg: #d46a84 !important;
+    --tabs-activated-fg: #fff0f7 !important;
+}

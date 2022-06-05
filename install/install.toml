@@ -1,0 +1,67 @@
+[vars]
+home = "/home/epsy"
+config = "/home/epsy/.config"
+firefox-user = "/home/epsy/.mozilla/firefox/j70542kf.default-release"
+
+[[file]]
+path = "termite"
+target = "{{config}}/termite/config"
+
+[[file]]
+path = "zshrc"
+target = "{{home}}/.zshrc"
+template = false
+
+[[file]]
+path = "i3"
+target = "{{config}}/i3/config"
+
+[[file]]
+name = "nvim"
+path = "init.vim"
+target = "{{config}}/nvim/init.vim"
+
+[[file]]
+path = "rofi"
+target = "{{config}}/rofi/config.rasi"
+
+[[file]]
+name = "firefox"
+path = "userChrome.css"
+target = "{{firefox-user}}/chrome/userChrome.css"
+
+[[file]]
+name = "firefoxcontent"
+path = "userContent.css"
+target = "{{firefox-user}}/chrome/userContent.css"
+
+[[file]]
+name = "git"
+path = "gitconfig"
+target = "{{home}}/.gitconfig"
+
+[[file]]
+path = "gtk3settings.ini"
+target = "{{config}}/gtk-3.0/settings.ini"
+
+[[file]]
+path = "sway/sway"
+target = "{{config}}/sway/config"
+[[file]]
+path = "sway/swaync/config.json"
+name = "swaync"
+target = "{{config}}/swaync/config.json"
+[[file]]
+path = "sway/swaync/style.css"
+name = "swaync"
+target = "{{config}}/swaync/style.css"
+[[file]]
+path = "sway/waybar/config"
+target = "{{config}}/waybar/config"
+[[file]]
+path = "sway/waybar/style.css"
+name = "waybar"
+target = "{{config}}/waybar/style.css"
+[[file]]
+path = "sway/alacritty.yml"
+target = "{{config}}/alacritty/alacritty.yml"

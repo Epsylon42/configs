@@ -1,0 +1,10 @@
+#!/bin/bash
+
+alias cat='head -n1'
+
+if [ -f $1/dconf/xkb_color ]; then
+    dconf write /org/mate/desktop/peripherals/keyboard/indicator/foreground-color "'$(cat $1/dconf/xkb_color)'"
+fi
+if [ -f $1/dconf/background ]; then
+    dconf write /org/mate/desktop/background/picture-filename "'$(cat $1/dconf/background)'"
+fi

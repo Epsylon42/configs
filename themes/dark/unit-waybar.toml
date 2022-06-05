@@ -1,0 +1,11 @@
+bg_color = 'rgba(43, 48, 59, 0.8)'
+fg_color = '#ffffff'
+border_color = 'rgba(100, 114, 125, 0.7)'
+
+workspace_bg_color = 'transparent'
+workspace_fg_color = '#ffffff'
+workspace_hover_bg_color = 'rgba(0, 0, 0, 0.2)'
+workspace_hover_border_color = '#ffffff'
+workspace_focused_bg_color = '#64727D'
+workspace_focused_fg_color = '#ffffff'
+workspace_focused_border_color = '#ffffff'

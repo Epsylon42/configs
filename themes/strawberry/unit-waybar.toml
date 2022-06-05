@@ -1,0 +1,11 @@
+bg_color = '#f0dde6'
+fg_color = '#2b2c33'
+border_color = '#d46a84'
+
+workspace_bg_color = 'transparent'
+workspace_fg_color = '#2b2c33'
+workspace_hover_bg_color = "#ffffff"
+workspace_hover_border_color = "#f0dde6"
+workspace_focused_bg_color = "#d46a84"
+workspace_focused_fg_color = "#ffffff"
+workspace_focused_border_color = "#f0dde6"

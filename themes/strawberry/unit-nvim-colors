@@ -1,0 +1,2 @@
+colorscheme strawberry-light
+let g:airline_theme='base16'

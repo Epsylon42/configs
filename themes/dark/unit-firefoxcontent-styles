@@ -1,0 +1,14 @@
+#root {
+    --bg-size: 150px 150px !important;
+    --bg-img: url("/assets/bg/noise-300x300.png") !important;
+    --bg: #343746 !important;
+    --title-fg: #f8f8f2 !important;
+    --sub-title-fg: #f8f8f2 !important;
+    --label-fg: #f8f8f2 !important;
+    --label-fg-hover: #f8f8f2 !important;
+    --label-fg-active: #f8f8f2 !important;
+    --info-fg: #f8f8f2 !important;
+    --ctx-menu-bg: #343746 !important;
+    --ctx-menu-bg-hover: #424450 !important;
+    --tabs-fg: #f8f8f2 !important;
+}

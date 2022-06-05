@@ -1,0 +1,43 @@
+[user]
+	name = Epsylon
+	email = eepsylon.3@gmail.com
+
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+
+[merge]
+    conflictstyle = diff3
+
+[alias]
+	l = log --all --graph --decorate --oneline 
+    lo  = log --all --graph --decorate
+    c = checkout
+    b = branch
+
+[color]
+	ui = auto
+[push]
+	default = simple
+[core]
+	excludesFile = /home/epsy/.gitignore
+    pager = "delta"
+[init]
+	defaultBranch = main
+
+[delta]
+    line-numbers = true
+    syntax-theme = {{ delta_theme }}
+
+[diff]
+    colorMoved = default

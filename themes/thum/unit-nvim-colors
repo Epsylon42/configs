@@ -1,0 +1,8 @@
+colorscheme default
+let g:airline_theme='base16_3024'
+
+:hi Pmenu guibg=Black
+:hi PmenuSel gui=underline
+:hi PmenuSel guibg=Black
+:hi PmenuSel guifg='#ff901f'
+:hi SignColumn guibg=Black

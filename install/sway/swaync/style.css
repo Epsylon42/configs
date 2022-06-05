@@ -1,0 +1,135 @@
+/*
+ * vim: ft=less 
+ */
+
+{{ colors }}
+
+.notification-row {
+    outline: none;
+}
+.notification-row:focus {
+    background: @bg-focus;
+}
+
+.notification {
+    border-radius: 10px;
+    margin: 6px 12px;
+    padding: 0;
+}
+
+.notification-content {
+    background: transparent;
+    padding: 6px;
+    border-radius: 10px;
+}
+
+.close-button {
+    opacity: 0;
+    background: @bg;
+    color: @fg;
+    margin: 0 4px;
+    padding: 0px 5px;
+    font-size: 1.4rem;
+    border-color: @border-color;
+    border-radius: 100%;
+}
+.close-button:hover {
+    background: @bg-hover;
+    transition: all 0.15s ease-in-out;
+}
+
+.notification-default-action,
+.notification-action {
+    padding: 4px;
+    color: @fg;
+    background: @bg;
+    border: 1px solid @border-color;
+}
+
+.notification-default-action:hover,
+.notification-action:hover {
+    background: @bg-hover;
+}
+
+.notification-default-action {
+    border-radius: 10px;
+}
+
+/* When alternative actions are visible */
+.notification-default-action:not(:only-child) {
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.notification-action {
+    border-radius: 0px;
+    border-top: none;
+}
+
+/* add bottom border radius to eliminate clipping */
+.notification-action:first-child {
+    border-bottom-left-radius: 10px;
+}
+.notification-action:last-child {
+    border-bottom-right-radius: 10px;
+}
+
+.image {
+}
+
+.body-image {
+    margin-top: 6px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.summary {
+    color: @fg;
+}
+
+.time {
+    color: @fg;
+}
+
+.body {
+    background: transparent;
+    color: @fg;
+}
+
+.top-action-title {
+    color: @fg;
+}
+
+.control-center-clear-all {
+    color: @fg;
+    background: @bg;
+    border: 1px solid @border-color;
+    border-radius: 10px;
+}
+.control-center-clear-all:hover {
+    background: @bg-hover;
+}
+
+.control-center-dnd {
+    border-radius: 10px;
+    background: @bg;
+    border: 1px solid @border-color;
+}
+
+.control-center-dnd:checked {
+    background: @bg-selected;
+}
+.control-center-dnd slider {
+    background: @bg-hover;
+}
+
+.control-center {
+    background: rgba(0, 0, 0, 0.7);
+}
+.control-center-list {
+    background: transparent;
+}
+
+.floating-notifications {
+    background: transparent;
+}

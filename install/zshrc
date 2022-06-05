@@ -1,0 +1,110 @@
+if [[ "$USER" == root ]]; then
+    . $HOME/.profile
+fi
+
+HIST_STAMPS="yyyy-mm-dd"
+HISTSIZE=999999999
+SAVEHIST=$HISTSIZE
+HISTFILE=$HOME/.zsh_history
+
+export EDITOR='nvim'
+export TERMINAL='termite'
+
+export LESSHISTFILE=/dev/null
+export DOTNET_CLI_TELEMETRY_OUTPUT=1
+export RIPGREP_CONFIG_PATH=$HOME/.config/rgrc
+#export RUSTC_WRAPPER=sccache
+export THEME_MANAGER_DIR=$HOME/theme-manager
+
+setopt NO_HUP
+setopt NO_CHECK_JOBS
+
+function initialize_normal_options() {
+    export ZSH=~/.oh-my-zsh
+
+    if [[ -e /etc/zsh_command_not_found ]]; then
+        source /etc/zsh_command_not_found
+    fi;
+
+    #export NVM_DIR="$HOME/.nvm"
+    #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+    #[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+    #export NODE_PATH=$NVM_DIR/versions/node/v10.12.0/lib/node_modules
+
+    if [[ -n "$SSH_CLIENT" ]]; then
+        SIMPLE_THEME=true
+    fi
+    if [[ $(tty) =~ /dev/tty[1-6] ]]; then
+        SIMPLE_THEME=true
+    fi
+    if [[ "$TERM" == "eterm-color" ]]; then
+        SIMPLE_THEME=true
+    fi
+    if [[ $SIMPLE_THEME == true ]]; then
+        ZSH_THEME="my-cypher"
+    else
+        plugins=(sudo fast-syntax-highlighting term_tab git)
+
+        ZSH_THEME="powerlevel10k/powerlevel10k"
+        POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir rbenv vcs root_indicator)
+        POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(custom_w32 root_indicator status background_jobs command_execution_time time)
+
+        POWERLEVEL9K_HOME_ICON=''
+        POWERLEVEL9K_MODE="nerdfont-complete"
+        POWERLEVEL9K_CONTEXT_TEMPLATE="%n"
+        POWERLEVEL9K_DIR_SHOW_WRITABLE="true"
+        POWERLEVEL9K_TIME_FORMAT=" %D{%H:%M}"
+        POWERLEVEL9K_ROOT_ICON=''
+
+        COMPLETION_WAITING_DOTS="true"
+
+        w32_print() {
+            if [[ "$WINEARCH" == win32 && -n "$WINEPREFIX" ]]; 
+                then echo w32
+            fi
+        }
+        POWERLEVEL9K_CUSTOM_W32='w32_print'
+        POWERLEVEL9K_CUSTOM_W32_BACKGROUND="black"
+        POWERLEVEL9K_CUSTOM_W32_FOREGROUND="white"
+    fi
+
+    source $ZSH/oh-my-zsh.sh
+
+    if [ -f ~/.zsh_functions ]; then
+        source ~/.zsh_functions
+    fi
+
+    if [ -f ~/.zsh_aliases ]; then
+        source ~/.zsh_aliases
+    fi
+
+    export fpath=(~/.zsh_completions $fpath)
+
+    eval "$(zoxide init zsh)"
+
+    unsetopt cdablevars
+
+    # The following lines were added by compinstall
+    zstyle ':completion:*' completer _expand _complete _ignored _approximate
+    zstyle ':completion:*' format 'Completion: %d'
+    zstyle ':completion:*' group-name ''
+    zstyle ':completion:*' matcher-list '+m:{[:lower:][:upper:]}={[:upper:][:lower:]} r:|[._-/]=** r:|=**' '+' '+l:|=* r:|=*'
+    zstyle ':completion:*' max-errors 4
+    zstyle ':completion:*' prompt 'Corrections: %e'
+
+    autoload -Uz compinit
+    compinit
+    # End of lines added by compinstall
+}
+
+# Only load oh-my-zsh in tty if there's enough memory
+#if [[ $(tty) =~ /dev/tty[1-6] ]]; then
+#    if memcheck; then
+#        initialize_normal_options
+#    fi
+#else
+#    initialize_normal_options
+#fi
+
+initialize_normal_options

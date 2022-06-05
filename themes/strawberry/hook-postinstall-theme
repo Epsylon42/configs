@@ -1,0 +1,6 @@
+#!/bin/bash
+
+gsettings set org.mate.interface icon-theme Arc-Strawberry
+gsettings set org.mate.interface gtk-theme Arc-Strawberry
+gsettings set org.gnome.desktop.interface icon-theme Arc-Strawberry
+gsettings set org.gnome.desktop.interface gtk-theme Arc-Strawberry

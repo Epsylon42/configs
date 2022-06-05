@@ -1,0 +1,6 @@
+@define-color fg #f8f8f2;
+@define-color border-color #9aedfe;
+@define-color bg #282a36;
+@define-color bg-hover #44475a;
+@define-color bg-focus #8be9fd;
+@define-color bg-selected rgb(0, 128, 255);
