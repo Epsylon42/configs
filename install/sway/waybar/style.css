@@ -138,11 +138,12 @@ label:focus {
 }
 
 #cpu {
-    background-color: #2ecc71;
     color: #000000;
+    background-color: #2ecc71;
 }
 
 #memory {
+    color: #ffffff;
     background-color: #9b59b6;
 }
 
@@ -226,8 +227,816 @@ label:focus {
 
 #language {
     background: #00b093;
-    color: #740864;
-    padding: 0 5px;
+    padding: 0 2px;
     margin: 0 5px;
-    min-width: 16px;
+    min-width: 20px;
+    color: #740864;
+    min-width: 2em;
+}
+
+#custom-playerctl {
+    padding: 0 10;
+    background: transparent;
+    color: white;
+}
+/* Progress bar hack */
+#custom-playerctl.0 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 0%,
+		rgba(144, 238, 144, 0.4) 0.1%
+	);
+}
+#custom-playerctl.1 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 1%,
+		rgba(144, 238, 144, 0.4) 1.1%
+	);
+}
+#custom-playerctl.2 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 2%,
+		rgba(144, 238, 144, 0.4) 2.1%
+	);
+}
+#custom-playerctl.3 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 3%,
+		rgba(144, 238, 144, 0.4) 3.1%
+	);
+}
+#custom-playerctl.4 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 4%,
+		rgba(144, 238, 144, 0.4) 4.1%
+	);
+}
+#custom-playerctl.5 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 5%,
+		rgba(144, 238, 144, 0.4) 5.1%
+	);
+}
+#custom-playerctl.6 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 6%,
+		rgba(144, 238, 144, 0.4) 6.1%
+	);
+}
+#custom-playerctl.7 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 7%,
+		rgba(144, 238, 144, 0.4) 7.1%
+	);
+}
+#custom-playerctl.8 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 8%,
+		rgba(144, 238, 144, 0.4) 8.1%
+	);
+}
+#custom-playerctl.9 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 9%,
+		rgba(144, 238, 144, 0.4) 9.1%
+	);
+}
+#custom-playerctl.10 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 10%,
+		rgba(144, 238, 144, 0.4) 10.1%
+	);
+}
+#custom-playerctl.11 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 11%,
+		rgba(144, 238, 144, 0.4) 11.1%
+	);
+}
+#custom-playerctl.12 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 12%,
+		rgba(144, 238, 144, 0.4) 12.1%
+	);
+}
+#custom-playerctl.13 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 13%,
+		rgba(144, 238, 144, 0.4) 13.1%
+	);
+}
+#custom-playerctl.14 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 14%,
+		rgba(144, 238, 144, 0.4) 14.1%
+	);
+}
+#custom-playerctl.15 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 15%,
+		rgba(144, 238, 144, 0.4) 15.1%
+	);
+}
+#custom-playerctl.16 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 16%,
+		rgba(144, 238, 144, 0.4) 16.1%
+	);
+}
+#custom-playerctl.17 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 17%,
+		rgba(144, 238, 144, 0.4) 17.1%
+	);
+}
+#custom-playerctl.18 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 18%,
+		rgba(144, 238, 144, 0.4) 18.1%
+	);
+}
+#custom-playerctl.19 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 19%,
+		rgba(144, 238, 144, 0.4) 19.1%
+	);
+}
+#custom-playerctl.20 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 20%,
+		rgba(144, 238, 144, 0.4) 20.1%
+	);
+}
+#custom-playerctl.21 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 21%,
+		rgba(144, 238, 144, 0.4) 21.1%
+	);
+}
+#custom-playerctl.22 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 22%,
+		rgba(144, 238, 144, 0.4) 22.1%
+	);
+}
+#custom-playerctl.23 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 23%,
+		rgba(144, 238, 144, 0.4) 23.1%
+	);
+}
+#custom-playerctl.24 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 24%,
+		rgba(144, 238, 144, 0.4) 24.1%
+	);
+}
+#custom-playerctl.25 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 25%,
+		rgba(144, 238, 144, 0.4) 25.1%
+	);
+}
+#custom-playerctl.26 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 26%,
+		rgba(144, 238, 144, 0.4) 26.1%
+	);
+}
+#custom-playerctl.27 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 27%,
+		rgba(144, 238, 144, 0.4) 27.1%
+	);
+}
+#custom-playerctl.28 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 28%,
+		rgba(144, 238, 144, 0.4) 28.1%
+	);
+}
+#custom-playerctl.29 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 29%,
+		rgba(144, 238, 144, 0.4) 29.1%
+	);
+}
+#custom-playerctl.30 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 30%,
+		rgba(144, 238, 144, 0.4) 30.1%
+	);
+}
+#custom-playerctl.31 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 31%,
+		rgba(144, 238, 144, 0.4) 31.1%
+	);
+}
+#custom-playerctl.32 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 32%,
+		rgba(144, 238, 144, 0.4) 32.1%
+	);
+}
+#custom-playerctl.33 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 33%,
+		rgba(144, 238, 144, 0.4) 33.1%
+	);
+}
+#custom-playerctl.34 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 34%,
+		rgba(144, 238, 144, 0.4) 34.1%
+	);
+}
+#custom-playerctl.35 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 35%,
+		rgba(144, 238, 144, 0.4) 35.1%
+	);
+}
+#custom-playerctl.36 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 36%,
+		rgba(144, 238, 144, 0.4) 36.1%
+	);
+}
+#custom-playerctl.37 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 37%,
+		rgba(144, 238, 144, 0.4) 37.1%
+	);
+}
+#custom-playerctl.38 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 38%,
+		rgba(144, 238, 144, 0.4) 38.1%
+	);
+}
+#custom-playerctl.39 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 39%,
+		rgba(144, 238, 144, 0.4) 39.1%
+	);
+}
+#custom-playerctl.40 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 40%,
+		rgba(144, 238, 144, 0.4) 40.1%
+	);
+}
+#custom-playerctl.41 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 41%,
+		rgba(144, 238, 144, 0.4) 41.1%
+	);
+}
+#custom-playerctl.42 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 42%,
+		rgba(144, 238, 144, 0.4) 42.1%
+	);
+}
+#custom-playerctl.43 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 43%,
+		rgba(144, 238, 144, 0.4) 43.1%
+	);
+}
+#custom-playerctl.44 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 44%,
+		rgba(144, 238, 144, 0.4) 44.1%
+	);
+}
+#custom-playerctl.45 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 45%,
+		rgba(144, 238, 144, 0.4) 45.1%
+	);
+}
+#custom-playerctl.46 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 46%,
+		rgba(144, 238, 144, 0.4) 46.1%
+	);
+}
+#custom-playerctl.47 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 47%,
+		rgba(144, 238, 144, 0.4) 47.1%
+	);
+}
+#custom-playerctl.48 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 48%,
+		rgba(144, 238, 144, 0.4) 48.1%
+	);
+}
+#custom-playerctl.49 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 49%,
+		rgba(144, 238, 144, 0.4) 49.1%
+	);
+}
+#custom-playerctl.50 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 50%,
+		rgba(144, 238, 144, 0.4) 50.1%
+	);
+}
+#custom-playerctl.51 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 51%,
+		rgba(144, 238, 144, 0.4) 51.1%
+	);
+}
+#custom-playerctl.52 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 52%,
+		rgba(144, 238, 144, 0.4) 52.1%
+	);
+}
+#custom-playerctl.53 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 53%,
+		rgba(144, 238, 144, 0.4) 53.1%
+	);
+}
+#custom-playerctl.54 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 54%,
+		rgba(144, 238, 144, 0.4) 54.1%
+	);
+}
+#custom-playerctl.55 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 55%,
+		rgba(144, 238, 144, 0.4) 55.1%
+	);
+}
+#custom-playerctl.56 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 56%,
+		rgba(144, 238, 144, 0.4) 56.1%
+	);
+}
+#custom-playerctl.57 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 57%,
+		rgba(144, 238, 144, 0.4) 57.1%
+	);
+}
+#custom-playerctl.58 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 58%,
+		rgba(144, 238, 144, 0.4) 58.1%
+	);
+}
+#custom-playerctl.59 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 59%,
+		rgba(144, 238, 144, 0.4) 59.1%
+	);
+}
+#custom-playerctl.60 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 60%,
+		rgba(144, 238, 144, 0.4) 60.1%
+	);
+}
+#custom-playerctl.61 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 61%,
+		rgba(144, 238, 144, 0.4) 61.1%
+	);
+}
+#custom-playerctl.62 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 62%,
+		rgba(144, 238, 144, 0.4) 62.1%
+	);
+}
+#custom-playerctl.63 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 63%,
+		rgba(144, 238, 144, 0.4) 63.1%
+	);
+}
+#custom-playerctl.64 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 64%,
+		rgba(144, 238, 144, 0.4) 64.1%
+	);
+}
+#custom-playerctl.65 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 65%,
+		rgba(144, 238, 144, 0.4) 65.1%
+	);
+}
+#custom-playerctl.66 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 66%,
+		rgba(144, 238, 144, 0.4) 66.1%
+	);
+}
+#custom-playerctl.67 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 67%,
+		rgba(144, 238, 144, 0.4) 67.1%
+	);
+}
+#custom-playerctl.68 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 68%,
+		rgba(144, 238, 144, 0.4) 68.1%
+	);
+}
+#custom-playerctl.69 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 69%,
+		rgba(144, 238, 144, 0.4) 69.1%
+	);
+}
+#custom-playerctl.70 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 70%,
+		rgba(144, 238, 144, 0.4) 70.1%
+	);
+}
+#custom-playerctl.71 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 71%,
+		rgba(144, 238, 144, 0.4) 71.1%
+	);
+}
+#custom-playerctl.72 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 72%,
+		rgba(144, 238, 144, 0.4) 72.1%
+	);
+}
+#custom-playerctl.73 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 73%,
+		rgba(144, 238, 144, 0.4) 73.1%
+	);
+}
+#custom-playerctl.74 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 74%,
+		rgba(144, 238, 144, 0.4) 74.1%
+	);
+}
+#custom-playerctl.75 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 75%,
+		rgba(144, 238, 144, 0.4) 75.1%
+	);
+}
+#custom-playerctl.76 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 76%,
+		rgba(144, 238, 144, 0.4) 76.1%
+	);
+}
+#custom-playerctl.77 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 77%,
+		rgba(144, 238, 144, 0.4) 77.1%
+	);
+}
+#custom-playerctl.78 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 78%,
+		rgba(144, 238, 144, 0.4) 78.1%
+	);
+}
+#custom-playerctl.79 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 79%,
+		rgba(144, 238, 144, 0.4) 79.1%
+	);
+}
+#custom-playerctl.80 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 80%,
+		rgba(144, 238, 144, 0.4) 80.1%
+	);
+}
+#custom-playerctl.81 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 81%,
+		rgba(144, 238, 144, 0.4) 81.1%
+	);
+}
+#custom-playerctl.82 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 82%,
+		rgba(144, 238, 144, 0.4) 82.1%
+	);
+}
+#custom-playerctl.83 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 83%,
+		rgba(144, 238, 144, 0.4) 83.1%
+	);
+}
+#custom-playerctl.84 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 84%,
+		rgba(144, 238, 144, 0.4) 84.1%
+	);
+}
+#custom-playerctl.85 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 85%,
+		rgba(144, 238, 144, 0.4) 85.1%
+	);
+}
+#custom-playerctl.86 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 86%,
+		rgba(144, 238, 144, 0.4) 86.1%
+	);
+}
+#custom-playerctl.87 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 87%,
+		rgba(144, 238, 144, 0.4) 87.1%
+	);
+}
+#custom-playerctl.88 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 88%,
+		rgba(144, 238, 144, 0.4) 88.1%
+	);
+}
+#custom-playerctl.89 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 89%,
+		rgba(144, 238, 144, 0.4) 89.1%
+	);
+}
+#custom-playerctl.90 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 90%,
+		rgba(144, 238, 144, 0.4) 90.1%
+	);
+}
+#custom-playerctl.91 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 91%,
+		rgba(144, 238, 144, 0.4) 91.1%
+	);
+}
+#custom-playerctl.92 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 92%,
+		rgba(144, 238, 144, 0.4) 92.1%
+	);
+}
+#custom-playerctl.93 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 93%,
+		rgba(144, 238, 144, 0.4) 93.1%
+	);
+}
+#custom-playerctl.94 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 94%,
+		rgba(144, 238, 144, 0.4) 94.1%
+	);
+}
+#custom-playerctl.95 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 95%,
+		rgba(144, 238, 144, 0.4) 95.1%
+	);
+}
+#custom-playerctl.96 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 96%,
+		rgba(144, 238, 144, 0.4) 96.1%
+	);
+}
+#custom-playerctl.97 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 97%,
+		rgba(144, 238, 144, 0.4) 97.1%
+	);
+}
+#custom-playerctl.98 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 98%,
+		rgba(144, 238, 144, 0.4) 98.1%
+	);
+}
+#custom-playerctl.99 {
+	/*background: rgba(144, 238, 144, 0.6);*/
+	background-image: linear-gradient(
+		to right,
+		rgba(144, 238, 144, 0.6) 99%,
+		rgba(144, 238, 144, 0.4) 99.1%
+	);
 }

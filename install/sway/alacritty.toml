@@ -1,0 +1,38 @@
+[general]
+live_config_reload = true
+
+{{{ colors }}}
+
+[cursor]
+unfocused_hollow = true
+vi_mode_style = "None"
+
+[cursor.style]
+blinking = "Off"
+shape = "Block"
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 10.0
+
+[font.bold]
+family = "SauceCodePro NerdFont"
+style = "Bold"
+
+[font.bold_italic]
+family = "SauceCodePro NerdFont"
+style = "Bold Italic"
+
+[font.italic]
+family = "SauceCodePro NerdFont"
+style = "Italic"
+
+[font.normal]
+family = "SauceCodePro NerdFont"
+style = "Regular"
+
+[scrolling]
+history = 10000
+multiplier = 3

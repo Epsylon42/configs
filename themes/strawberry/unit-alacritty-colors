@@ -1,112 +1,39 @@
 # Colors (Tomorrow Night)
-colors:
   # Default colors
   #primary:
     #background: '#282a36'
     #foreground: '#f8f8f2'
 
-  primary:
-    background: '#fff0f7'
-    foreground: '#2b1d24'
+[colors.primary]
+    background = '#fff0f7'
+    foreground = '#2b1d24'
 
-  cursor:
-    text: CellBackground
-    cursor: CellForeground
+[colors.cursor]
+text = "CellBackground"
+cursor = "CellForeground"
 
-  vi_mode_cursor:
-    text: CellBackground
-    cursor: CellForeground
+[colors.vi_mode_cursor]
+text = "CellBackground"
+cursor = "CellForeground"
 
-  normal:
-    black:   '#fff0f7'
-    red:     '#ff5050'
-    green:   '#219e21'
-    yellow:  '#d4ac35'
-    blue:    '#468dd4'
-    magenta: '#a26fbf'
-    cyan:    '#1b9e9e'
-    white:   '#75616b'
+[colors.normal]
+    black =   '#fff0f7'
+    red =     '#ff5050'
+    green =   '#219e21'
+    yellow =  '#d4ac35'
+    blue =    '#468dd4'
+    magenta = '#a26fbf'
+    cyan =    '#1b9e9e'
+    white =   '#75616b'
 
-  bright:
-    black:   '#f0dde6'
-    red:     '#ff5050'
-    green:   '#219e21'
-    yellow:  '#d4ac35'
-    blue:    '#468dd4'
-    magenta: '#a26fbf'
-    cyan:    '#1b9e9e'
-    white:   '#75616b'
+[colors.bright]
+    black =   '#f0dde6'
+    red =     '#ff5050'
+    green =   '#219e21'
+    yellow =  '#d4ac35'
+    blue =    '#468dd4'
+    magenta = '#a26fbf'
+    cyan =    '#1b9e9e'
+    white =   '#75616b'
 
 
-  #normal:
-    #black:   '#000000'
-    #red:     '#ff5555'
-    #green:   '#50fa7b'
-    #yellow:  '#f1fa8c'
-    #blue:    '#caa9fa'
-    #magenta: '#ff79c6'
-    #cyan:    '#8be9fd'
-    #white:   '#bfbfbf'
-
-  #bright:
-    #black:   '#575b70'
-    #red:     '#ff6e67'
-    #green:   '#5af78e'
-    #yellow:  '#f4f99d'
-    #blue:    '#caa9fa'
-    #magenta: '#ff92d0'
-    #cyan:    '#9aedfe'
-    #white:   '#e6e6e6'
-
-  #search:
-    #matches:
-      #foreground: '#000000'
-      #background: '#ffffff'
-    #focused_match:
-      #foreground: '#ffffff'
-      #background: '#000000'
-
-    #bar:
-      #background: '#c5c8c6'
-      #foreground: '#1d1f21'
-
-  #hints:
-    #start:
-      #foreground: '#1d1f21'
-      #background: '#e9ff5e'
-
-    #end:
-      #foreground: '#e9ff5e'
-      #background: '#1d1f21'
-
-  #line_indicator:
-    #foreground: None
-    #background: None
-
-  #selection:
-    #text: CellBackground
-    #background: CellForeground
-
-  # Dim colors
-  #
-  # If the dim colors are not set, they will be calculated automatically based
-  # on the `normal` colors.
-  #dim:
-  #  black:   '#131415'
-  #  red:     '#864343'
-  #  green:   '#777c44'
-  #  yellow:  '#9e824c'
-  #  blue:    '#556a7d'
-  #  magenta: '#75617b'
-  #  cyan:    '#5b7d78'
-  #  white:   '#828482'
-
-  # Indexed Colors
-  #
-  # The indexed colors include all colors from 16 to 256.
-  # When these are not set, they're filled with sensible defaults.
-  #
-  # Example:
-  #   `- { index: 16, color: '#ff00ff' }`
-  #
-  #indexed_colors: []

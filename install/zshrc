@@ -38,7 +38,7 @@ function initialize_normal_options() {
     if [[ $(tty) =~ /dev/tty[1-6] ]]; then
         SIMPLE_THEME=true
     fi
-    if [[ "$TERM" == "eterm-color" ]]; then
+    if [[ "$TERM" == "eterm-color" || "$TERM" == "linux" ]]; then
         SIMPLE_THEME=true
     fi
     if [[ $SIMPLE_THEME == true ]]; then

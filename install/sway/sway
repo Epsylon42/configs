@@ -28,8 +28,9 @@ input "type:touchpad" {
 }
 
 input "type:keyboard" {
-    xkb_layout "us,ru,ua"
-    xkb_options "ctrl:swapcaps,grp:win_space_toggle,grp:lctrl_lwin_rctrl_menu"
+    xkb_layout "us,ua,ru"
+    xkb_options "caps:ctrl_modifier,grp:win_space_toggle,grp:lctrl_lwin_rctrl_menu"
+# ctrl:swapcaps,
 }
 
 output "*" {
@@ -49,6 +50,9 @@ exec --no-startup-id nm-applet
 
 # notifications
 exec --no-startup-id swaync
+
+# blue filter
+exec --no-startup-id wlsunset -s 21:00 -S 06:00
 
 #exec --no-startup-id compton -D1 -i1
 
@@ -85,7 +89,7 @@ bindsym --to-code {
     # start dmenu (a program launcher)
     $mod+d exec rofi -modi run -show combi
     $mod+Shift+e exec rofi -modi emoji -show emoji
-    $mod+Shift+u exec unipicker --command 'rofi -dmenu -p char' --copy
+    $mod+Shift+u exec unipicker --command 'rofi -dmenu -p char' --copy-command 'wl-copy -t text/plain'
 
     # change focus
     $mod+$left focus left
@@ -142,8 +146,8 @@ bindsym --to-code {
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1:  browser"
-set $ws2 "2:  ﭮ chat"
+set $ws1 "1: 󰈹 browser"
+set $ws2 "2:   chat"
 set $ws3 "3"
 set $ws4 "4"
 set $ws5 "5"
@@ -248,6 +252,7 @@ for_window [app_id="eog|pavucontrol"] floating enable
 assign [app_id="thunderbird"] $ws1
 assign [app_id="firefox" title="Mozilla Firefox$"] $ws1
 assign [title="^Discord$|Telegram"] $ws2
+assign [title="Steam"] $ws3
 
 for_window [app_id="thunderbird"] layout stacking
 for_window [app_id="firefox" title="Mozilla Firefox$"] layout stacking
@@ -275,5 +280,4 @@ mode "screenshot" {
 
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec hash dbus-update-activation-environment 2>/dev/null && \
-     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
-
+     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK MOZ_DBUS_REMOTE

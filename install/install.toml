@@ -65,3 +65,6 @@ target = "{{config}}/waybar/style.css"
 [[file]]
 path = "sway/alacritty.yml"
 target = "{{config}}/alacritty/alacritty.yml"
+[[file]]
+path = "sway/alacritty.toml"
+target = "{{config}}/alacritty/alacritty.toml"
