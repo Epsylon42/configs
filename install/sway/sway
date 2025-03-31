@@ -76,9 +76,6 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-#exec_always --no-startup-id tail -f ~/tmp/wobpipe | wob --anchor bottom --margin 200
-exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
-
 bindsym --to-code {
     # start a terminal
     $mod+Return exec alacritty
@@ -278,6 +275,8 @@ mode "screenshot" {
 
 {{ colors }}
 
-exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
 exec hash dbus-update-activation-environment 2>/dev/null && \
-     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK MOZ_DBUS_REMOTE
+     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK MOZ_DBUS_REMOTE XDG_CURRENT_DESKTOP
+
+exec gnome-keyring-daemon --start 
