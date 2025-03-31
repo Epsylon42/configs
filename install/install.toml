@@ -16,10 +16,15 @@ template = false
 path = "i3"
 target = "{{config}}/i3/config"
 
+#[[file]]
+#name = "nvim"
+#path = "init.vim"
+#target = "{{config}}/nvim/init.vim"
+
 [[file]]
-name = "nvim"
-path = "init.vim"
-target = "{{config}}/nvim/init.vim"
+name = "nvim_lua"
+path = "init.lua"
+target = "{{config}}/nvim/init.lua"
 
 [[file]]
 path = "rofi"
