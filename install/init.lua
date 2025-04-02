@@ -1,7 +1,6 @@
 vim.cmd [[
     set tabstop=4
     set shiftwidth=4
-    set softtabstop=1
     set expandtab
     set smarttab
 
@@ -10,6 +9,9 @@ vim.cmd [[
 
     set ignorecase
     set smartcase
+
+    set number
+    set scrolloff=5
     set inccommand=nosplit
     set linebreak
 
@@ -42,10 +44,9 @@ vim.cmd [[
     nnoremap <M-Up> <C-w>k
     nnoremap <M-Right> <C-w>l
 
-    " single press tabs and commenting
+    " tab offsets
     vmap <Tab> >Vgv
     vmap <S-Tab> <Vgv
-    vmap <M-c> <Leader>c<Space>Vgv
 
     " move lines
     nnoremap <C-j> :m .+1<CR>==
@@ -75,6 +76,14 @@ vim.cmd [[
     autocmd SwapExists * :let v:swapchoice = ''
 ]]
 
+-- tabs
+for i=1,9 do
+    vim.keymap.set('n', '<M-'..tostring(i)..'>', tostring(i)..'gt', { silent = true })
+    vim.keymap.set('t', '<M-'..tostring(i)..'>', '<C-\\><C-n>'..tostring(i)..'gt', { silent = true })
+end
+vim.keymap.set('n', '<C-t>', ':tabnew<CR>', { silent = true })
+vim.keymap.set('n', '<C-w><C-t>', ':tabclose<CR>', { silent = true })
+
 vim.g.airline_powerline_fonts = 1
 vim.g.rainbow_active = 1
 vim.g.vim_json_conceal=0
@@ -82,17 +91,17 @@ vim.g.vim_json_conceal=0
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
-  if vim.v.shell_error ~= 0 then
-    vim.api.nvim_echo({
-      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-      { out, "WarningMsg" },
-      { "\nPress any key to exit..." },
-    }, true, {})
-    vim.fn.getchar()
-    os.exit(1)
-  end
+    local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+    local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+    if vim.v.shell_error ~= 0 then
+        vim.api.nvim_echo({
+            { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+            { out, "WarningMsg" },
+            { "\nPress any key to exit..." },
+        }, true, {})
+        vim.fn.getchar()
+        os.exit(1)
+    end
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -101,19 +110,83 @@ require("lazy").setup {
         {
             'dracula/vim',
             config = function()
-                vim.cmd [[ colorscheme dracula ]]
             end
         },
-        'jiangmiao/auto-pairs',
+        'nightsense/strawberry',
         'vim-airline/vim-airline',
         'vim-airline/vim-airline-themes',
-        'tpope/vim-surround',
-        'preservim/nerdcommenter',
-        'airblade/vim-gitgutter',
         'machakann/vim-swap',
         'Yggdroot/indentLine',
         'chrisbra/Colorizer',
+        {
+            'windwp/nvim-autopairs',
+            event = 'InsertEnter',
+            config = true,
+            opts = {}
+        },
+        {
+            'kylechui/nvim-surround',
+            event = 'VeryLazy',
+            opts = {}
+        },
+        {
+            'numToStr/Comment.nvim',
+            opts = {}
+        },
+        {
+            'smoka7/hop.nvim',
+            opts = {}
+        },
 
+        {
+            'nanozuki/tabby.nvim',
+            config = function()
+                vim.o.showtabline = 2
+                for i=1,10 do
+                    vim.keymap.set('n', '<M-' .. tostring(i) .. '>', tostring(i) .. 'gt')
+                end
+
+                local theme = {
+                    fill = 'TabLineFill',
+                    -- Also you can do this: fill = { fg='#f2e9de', bg='#907aa9', style='italic' }
+                    head = 'TabLine',
+                    current_tab = 'TabLineSel',
+                    tab = 'TabLine',
+                    win = 'TabLine',
+                    tail = 'TabLine',
+                }
+
+                require('tabby').setup({
+                    line = function(line)
+                        return {
+                            {
+                                { '  ', hl = theme.head },
+                                line.sep('', theme.head, theme.fill),
+                            },
+                            line.tabs().foreach(function(tab)
+                                local hl = tab.is_current() and theme.current_tab or theme.tab
+                                return {
+                                    line.sep('', hl, theme.fill),
+                                    tab.is_current() and '' or '',
+                                    tab.number(),
+                                    tab.name(),
+                                    line.sep('', hl, theme.fill),
+                                    hl = hl,
+                                    margin = ' ',
+                                }
+                            end),
+                            --line.spacer(),
+                            --{
+                                --line.sep('', theme.tail, theme.fill),
+                                --{ '  ', hl = theme.tail },
+                            --},
+                            hl = theme.fill,
+                        }
+                    end,
+                    -- option = {}, -- setup modules' option,
+                })
+            end
+        },
         'sindrets/diffview.nvim',
         {
             'nvim-neo-tree/neo-tree.nvim',
@@ -164,6 +237,8 @@ require("lazy").setup {
             dependencies = {
                 'nvim-lua/plenary.nvim',
             },
+            lazy = true,
+            cmd = 'Telescope',
             config = function()
                 local actions = require('telescope.actions')
                 require('telescope').setup {
@@ -181,11 +256,38 @@ require("lazy").setup {
             end
         },
 
+        -- git
         {
-            'smoka7/hop.nvim',
-            config = function()
-                require('hop').setup {}
-            end
+            'NeogitOrg/neogit',
+            dependencies = {
+                'nvim-lua/plenary.nvim',
+                'sindrets/diffview.nvim',
+                'nvim-telescope/telescope.nvim',
+            },
+            lazy = true,
+            cmd = 'Neogit',
+            opts = {}
+        },
+        {
+            'lewis6991/gitsigns.nvim',
+            opts = {
+                signs = {
+                    add          = { text = '┃' },
+                    change       = { text = '┃' },
+                    delete       = { text = '-' },
+                    topdelete    = { text = '‾' },
+                    changedelete = { text = '┃' },
+                    untracked    = { text = '┆' },
+                },
+                signs_staged = {
+                    add          = { text = '┃' },
+                    change       = { text = '┃' },
+                    delete       = { text = '-' },
+                    topdelete    = { text = '‾' },
+                    changedelete = { text = '┃' },
+                    untracked    = { text = '┆' },
+                },
+            }
         },
 
         -- languages
@@ -200,6 +302,7 @@ require("lazy").setup {
             config = function()
                 require('nvim-treesitter.configs').setup {
                     ensure_installed = { 'wgsl', 'glsl' },
+                    auto_install = true,
                     highlight = { enable = true },
                     indent = { enable = true },
                 }
@@ -251,29 +354,29 @@ require("lazy").setup {
             },
             config = function()
                 local cmp = require('cmp')
-                cmp.setup({
+                cmp.setup {
                     completion = { completeopt = 'menu,menuone,noinsert,noselect' },
                     mapping = cmp.mapping.preset.insert {
                         ['<C-d>'] = cmp.mapping.scroll_docs(-4),
                         ['<C-f>'] = cmp.mapping.scroll_docs(4),
                         ['<C-Space>'] = cmp.mapping.complete {},
                         ['<CR>'] = cmp.mapping.confirm {
-                          behavior = cmp.ConfirmBehavior.Replace,
-                          select = true,
+                            behavior = cmp.ConfirmBehavior.Replace,
+                            select = true,
                         },
                         ['<Tab>'] = cmp.mapping(function(fallback)
-                          if cmp.visible() then
-                            cmp.select_next_item()
-                          else
-                            fallback()
-                          end
+                            if cmp.visible() then
+                                cmp.select_next_item()
+                            else
+                                fallback()
+                            end
                         end, { 'i', 's' }),
                         ['<S-Tab>'] = cmp.mapping(function(fallback)
-                          if cmp.visible() then
-                            cmp.select_prev_item()
-                          else
-                            fallback()
-                          end
+                            if cmp.visible() then
+                                cmp.select_prev_item()
+                            else
+                                fallback()
+                            end
                         end, { 'i', 's' }),
                     },
 
@@ -283,13 +386,23 @@ require("lazy").setup {
                         { name = 'buffer' },
                         { name = 'nvim_lsp_signature_help' },
                     }
-                })
+                }
+
+                cmp.event:on('confirm_done', require('nvim-autopairs.completion.cmp').on_confirm_done())
             end
         },
     },
     --install = { colorscheme = { "habamax" } },
-    checker = { enabled = true },
+    --checker = { enabled = true },
 }
+
+vim.cmd [[ 
+    if $TERM == 'linux'
+        colorscheme dracula
+    else
+        {{{ colors }}}
+    endif
+]]
 
 vim.cmd [[
     nnoremap <silent> <leader>f :Neotree toggle<CR>
@@ -315,6 +428,12 @@ vim.cmd [[
     nnoremap <silent> gD :Telescope lsp_declarations<CR>
     nnoremap <silent> gi :Telescope lsp_implementations<CR>
     nnoremap <silent> gr :Telescope lsp_references<CR>
+
+    nnoremap <silent> <leader>gg :Neogit<CR>
+    nnoremap <silent> <leader>gh :Gitsigns preview_hunk_inline<CR>
+    nnoremap <silent> <leader>gH :Gitsigns preview_hunk<CR>
+    nnoremap <silent> <leader>gs :Gitsigns stage_hunk<CR>
+    nnoremap <silent> <leader>gb :Gitsigns blame<CR>
 ]]
 
 vim.diagnostic.config({
