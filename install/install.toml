@@ -22,7 +22,7 @@ target = "{{config}}/i3/config"
 #target = "{{config}}/nvim/init.vim"
 
 [[file]]
-name = "nvim_lua"
+name = "nvim"
 path = "init.lua"
 target = "{{config}}/nvim/init.lua"
 
@@ -67,9 +67,12 @@ target = "{{config}}/waybar/config"
 path = "sway/waybar/style.css"
 name = "waybar"
 target = "{{config}}/waybar/style.css"
-[[file]]
-path = "sway/alacritty.yml"
-target = "{{config}}/alacritty/alacritty.yml"
+# [[file]]
+# path = "sway/alacritty.yml"
+# target = "{{config}}/alacritty/alacritty.yml"
 [[file]]
 path = "sway/alacritty.toml"
 target = "{{config}}/alacritty/alacritty.toml"
+[[file]]
+path = "sway/kitty.conf"
+target = "{{config}}/kitty/kitty.conf"

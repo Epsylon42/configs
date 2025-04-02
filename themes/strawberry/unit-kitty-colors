@@ -1,0 +1,56 @@
+foreground            #2b1d24
+background            #fff0f7
+selection_foreground  #2b1d24
+selection_background  #f0dde6
+
+url_color #468dd4
+
+# black
+color0  #fff0f7
+color8  #f0dde6
+
+# red
+color1  #ff5050
+color9  #ff5050
+
+# green
+color2  #219e21
+color10 #219e21
+
+# yellow
+color3  #d4ac35
+color11 #d4ac35
+
+# blue
+color4  #468dd4
+color12 #468dd4
+
+# magenta
+color5  #a26fbf
+color13 #a26fbf
+
+# cyan
+color6  #1b9e9e
+color14 #1b9e9e
+
+# white
+color7  #75616b
+color15 #75616b
+
+# Cursor colors
+cursor            #2b1d24
+cursor_text_color #fff0f7
+
+# Tab bar colors
+active_tab_foreground   #fff0f7
+active_tab_background   #2b1d24
+inactive_tab_foreground #fff0f7
+inactive_tab_background #75616b
+
+# Marks
+mark1_foreground #fff0f7
+mark1_background #ff5050
+
+# Splits/Windows
+active_border_color #2b1d24
+inactive_border_color #75616b

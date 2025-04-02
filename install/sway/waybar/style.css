@@ -60,7 +60,8 @@ window#waybar.chromium {
 }
 
 #workspaces button.urgent {
-    background-color: #eb4d4b;
+    color: black;
+    background-color: #f1c40f;
 }
 
 #mode {
