@@ -16,6 +16,8 @@ vim.cmd [[
     set linebreak
 
     set clipboard=unnamedplus
+
+    set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz,ІЄ;S\",іє;s\',ʼ;~
 ]]
 
 vim.cmd [[
@@ -33,6 +35,10 @@ vim.cmd [[
 
     " clear search
     nnoremap <silent> <C-n> :noh<CR>
+
+    " do not immediately jump to next find
+    nnoremap * :keepjumps normal! mi*`i<CR>
+    nnoremap # :keepjumps normal! mi#`i<CR>
 
     " window navigation
     nnoremap <M-h> <C-w>h
@@ -56,8 +62,6 @@ vim.cmd [[
 
     " delete function
     nmap dF dt(ds)
-
-    set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz,І;S,і;s
 ]]
 
 vim.cmd [[
@@ -107,14 +111,24 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup {
     spec = {
+        'nvim-tree/nvim-web-devicons',
         {
-            'dracula/vim',
-            config = function()
-            end
+            'Wansmer/langmapper.nvim',
+            lazy = false,
+            priority = 1,
+            opts = {}
+        },
+
+        'folke/tokyonight.nvim',
+        {
+            'dracula/vim'
+            -- 'Mofiqul/dracula.nvim',
         },
         'nightsense/strawberry',
-        'vim-airline/vim-airline',
-        'vim-airline/vim-airline-themes',
+        {
+            'nvim-lualine/lualine.nvim',
+            opts = {}
+        },
         'machakann/vim-swap',
         'Yggdroot/indentLine',
         'chrisbra/Colorizer',
@@ -189,7 +203,8 @@ require("lazy").setup {
         },
         'sindrets/diffview.nvim',
         {
-            'nvim-neo-tree/neo-tree.nvim',
+            'Epsylon42/neo-tree.nvim',
+            branch = 'my-improvements',
             lazy = false,
             dependencies = {
                 'nvim-lua/plenary.nvim',
@@ -198,15 +213,32 @@ require("lazy").setup {
             },
             opts = {
                 sources = {
-                    "filesystem",
-                    "buffers",
-                    "git_status",
+                    'filesystem',
+                    'buffers',
+                    'git_status',
                 },
                 window = {
                     mappings = {
-                        ["/"] = "none",
+                        ['/'] = 'none',
+                        ['u'] = 'navigate_up',
+                        ['c'] = {
+                            'copy',
+                            config = {
+                                show_path = 'relative'
+                            }
+                        },
+                        ['m'] = {
+                            'move',
+                            config = {
+                                show_path = 'relative'
+                            }
+                        },
                         --["<C-/>"] = "fuzzy_finder",
                     }
+                },
+                use_popups_for_input = false,
+                filesystem = {
+                    group_empty_dirs = true,
                 },
             }
         },
@@ -296,6 +328,21 @@ require("lazy").setup {
         'tmhedberg/matchit',
 
         'MeanderingProgrammer/render-markdown.nvim',
+        {
+            'epwalsh/obsidian.nvim',
+            dependencies = {
+                'nvim-lua/plenary.nvim',
+            },
+            lazy = true,
+            ft = 'markdown',
+            config = function()
+                local loaded, workspaces = pcall(require, 'obsidian-workspaces')
+                require('obsidian').setup {
+                    disable_frontmatter = true,
+                    workspaces = loaded and workspaces or {}
+                }
+            end
+        },
 
         {
             'nvim-treesitter/nvim-treesitter',
@@ -327,20 +374,20 @@ require("lazy").setup {
                 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
                 require('mason').setup()
-                require("mason-lspconfig").setup()
-                require("mason-lspconfig").setup_handlers {
+                require('mason-lspconfig').setup()
+                require('mason-lspconfig').setup_handlers {
                     function (server_name) -- default handler (optional)
                         require("lspconfig")[server_name].setup {
                             capabilities = capabilities
                         }
                     end,
 
-                    ["glslls"] = function()
-                        require('lspconfig').glslls.setup({
+                    ['glslls'] = function()
+                        require('lspconfig').glslls.setup {
                             cmd = { "glslls", "--stdin", "--target-env=opengl" },
                             capabilities = capabilities
-                        })
-                    end
+                        }
+                    end,
                 }
             end
         },
@@ -396,13 +443,73 @@ require("lazy").setup {
     --checker = { enabled = true },
 }
 
-vim.cmd [[ 
-    if $TERM == 'linux'
-        colorscheme dracula
-    else
+local function setup_colors()
+    local colors = { -- copied from Mofiqul/dracula.nvim
+        bg = "#282A36",
+        fg = "#F8F8F2",
+        selection = "#44475A",
+        comment = "#6272A4",
+        red = "#FF5555",
+        orange = "#FFB86C",
+        yellow = "#F1FA8C",
+        green = "#50fa7b",
+        purple = "#BD93F9",
+        cyan = "#8BE9FD",
+        pink = "#FF79C6",
+        bright_red = "#FF6E6E",
+        bright_green = "#69FF94",
+        bright_yellow = "#FFFFA5",
+        bright_blue = "#D6ACFF",
+        bright_magenta = "#FF92DF",
+        bright_cyan = "#A4FFFF",
+        bright_white = "#FFFFFF",
+        menu = "#21222C",
+        visual = "#3E4452",
+        gutter_fg = "#4B5263",
+        nontext = "#3B4048",
+        white = "#ABB2BF",
+        black = "#191A21",
+    }
+    local util = require('tokyonight.util')
+
+    local blend_bg = function(color, factor)
+        return util.blend(color, factor, util.darken(colors.menu, 0.5))
+    end
+
+    local overrides =  {
+        DiffAdd = { bg = util.darken(colors.bright_green, 0.15) },
+        DiffDelete = { fg = colors.bright_red },
+        DiffChange = { bg = blend_bg(colors.cyan, 0.2) },
+        DiffText = { bg = util.darken(colors.cyan, 0.45) },
+        illuminatedWord = { bg = blend_bg(colors.comment, 0.65) },
+        illuminatedCurWord = { bg = blend_bg(colors.comment, 0.65) },
+        IlluminatedWordText = { bg = blend_bg(colors.comment, 0.65) },
+        IlluminatedWordRead = { bg = blend_bg(colors.comment, 0.65) },
+        IlluminatedWordWrite = { bg = blend_bg(colors.comment, 0.65) },
+
+        GitSignsAdd = { fg = colors.green, },
+        GitSignsChange = { fg = colors.cyan, },
+        GitSignsDelete = { fg = colors.bright_red, },
+        GitSignsAddLn = { fg = colors.black, bg = colors.green, },
+        GitSignsChangeLn = { fg = colors.black, bg = colors.cyan, },
+        GitSignsDeleteLn = { fg = colors.black, bg = colors.bright_red, },
+        GitSignsCurrentLineBlame = { fg = colors.white, },
+    }
+
+    for hl,value in pairs(overrides) do
+        vim.api.nvim_set_hl(0, hl, value)
+    end
+end
+
+if vim.env.TERM == 'linux' then
+    vim.cmd [[ colorscheme dracula ]]
+else
+    vim.cmd [[
         {{{ colors }}}
-    endif
-]]
+    ]]
+end
+setup_colors()
+
 
 vim.cmd [[
     nnoremap <silent> <leader>f :Neotree toggle<CR>
@@ -416,10 +523,10 @@ vim.cmd [[
     nmap <M-c> :HopChar1<CR>
     nmap <M-s> :HopLineStart<CR>
 
-    nnoremap <silent> <leader>Do :DiffviewOpen<CR>
-    nnoremap <silent> <leader>Dc :DiffviewClose<CR>
-    nnoremap <silent> <leader>Dh :DiffviewFileHistory<CR>
-    nnoremap <silent> <leader>DH :DiffviewFileHistory %<CR>
+    nnoremap <silent> <leader>DO :DiffviewOpen<CR>
+    nnoremap <silent> <leader>DC :DiffviewClose<CR>
+    nnoremap <silent> <leader>DH :DiffviewFileHistory<CR>
+    nnoremap <silent> <leader>Dh :DiffviewFileHistory %<CR>
 
     nnoremap <silent> <leader>= :lua vim.lsp.buf.format()<CR>
     nnoremap <silent> <leader>ca :lua vim.lsp.buf.code_action()<CR>
@@ -441,3 +548,49 @@ vim.diagnostic.config({
     signs = true,
     underline = true,
 })
+
+local function cmdline_langmap()
+    local langmap = {}
+    for _,part in pairs(vim.opt.langmap:get()) do
+        local pair = vim.fn.split(part, ';')
+        for i = 1, math.min(vim.fn.strchars(pair[1]), vim.fn.strchars(pair[2])) do
+            local from = vim.fn.strcharpart(pair[1], i-1, 1)
+            local to   = vim.fn.strcharpart(pair[2], i-1, 1)
+            langmap[from] = to
+        end
+    end
+
+    vim.api.nvim_create_augroup('CyrillicCommandMap', { clear = true })
+
+    local function apply_mappings()
+        for from, to in pairs(langmap) do
+            vim.api.nvim_set_keymap('c', from, to, { noremap = true })
+        end
+    end
+
+    local function clear_mappings()
+        for from, _ in pairs(langmap) do
+            pcall(function() vim.api.nvim_del_keymap('c', from) end)
+        end
+    end
+
+    vim.api.nvim_create_autocmd('CmdlineEnter', {
+        group = 'CyrillicCommandMap',
+        callback = function(evt)
+            if evt.match == ':' then
+                apply_mappings()
+            end
+        end
+    })
+
+    vim.api.nvim_create_autocmd('CmdlineLeave', {
+        group = 'CyrillicCommandMap',
+        callback = function()
+            clear_mappings()
+        end
+    })
+end
+
+cmdline_langmap()
+
+require('langmapper').automapping({ global = true, buffer = true })
